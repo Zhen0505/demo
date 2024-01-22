@@ -129,7 +129,25 @@ public class ExampleController {
 	 
 	 
 	 @PostMapping("/transres")
-	 public String transres(@ModelAttribute("testform") Example formData, Map<String, Object> model) {
+	 public String transres(@ModelAttribute("testform2") Example formData, Map<String, Object> model) {
+			this.message = "註冊結果⾴";
+			log.info("{}", formData);
+			// 调用Service的transfer方法
+	         Example traresult = examS.transfer(formData);
+
+	         // 可以根据result的情况返回不同的响应
+	         if (traresult != null) {
+	 		    model.put("transfer", "轉帳成功");
+
+	 	    } else {
+	 		    model.put("transfer", "轉帳失敗");
+	 		}
+	 	    return "transres";
+	     
+	 }
+	 
+	 @PostMapping("/transress")
+	 public String transress(@ModelAttribute("testform") Example formData, Map<String, Object> model) {
 			this.message = "轉帳結果⾴";
 			log.info("{}", formData);
 			// 调用Service的transfer方法
