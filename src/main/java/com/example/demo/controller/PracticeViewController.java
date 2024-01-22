@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/practice")
 @Slf4j
-public class PracticeView {
+public class PracticeViewController {
 	
 	@Autowired
 	PracticeService practiceS;
@@ -100,5 +100,4 @@ public class PracticeView {
 			return "resultP";
 		}
 	}
-
 }

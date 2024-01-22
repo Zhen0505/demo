@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/example")
 @Slf4j
-public class TestView {
+public class TestViewController {
 	
 	@Autowired
 	TestService testS;
@@ -96,5 +96,4 @@ public class TestView {
 		}
 		return "result";
 	}
-
 }
