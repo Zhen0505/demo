@@ -10,6 +10,7 @@
     
         <form id='testform' action="/practice/result" method="POST">
         <h2>${result}</h2>
+        <P>餘額：${balance}</p>
 			<button type="submit" value="提交">返回</button>
 		</form>
     </body>

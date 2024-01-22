@@ -8,6 +8,7 @@
     <body>
         <form id='registerform' action="/practice/register" method="POST">
 			ID:<input type='text' id='id' name='id'><br> 
+			NAME:<input type='text'  name='name'><br> 
 			PASSWOED:<input type='text' name='password'><br>
 			<button type="submit" value="提交">註冊</button>
 		</form>

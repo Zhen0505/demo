@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.dto.TransferDto;
 import com.example.demo.entity.Practice;
 import com.example.demo.service.PracticeService;
 
@@ -63,8 +64,8 @@ public class PracticeView {
 		log.info("{}", formdata);
 		Practice login =practiceS.login(formdata);
 		if(login!=null) {
-			model.put("lid", formdata.getId());
-			model.put("lpassword", formdata.getPassword());
+			model.put("id", login.getId());
+			model.put("name", login.getName());
 			model.put("price", login.getPrice());
 			return "home";
 		}
@@ -72,7 +73,32 @@ public class PracticeView {
 			model.put("result", "帳號不存在或密碼錯誤，請重新登入");
 			return "resultP";
 		}
-		
+	}
+	
+	@PostMapping(value = "/transfer")
+	public String transfer(@ModelAttribute("transferform") TransferDto formdata,
+			Map<String, Object> model) {
+		log.info("{}", formdata);
+		model.put("fromid", formdata.getFromid());
+		model.put("toid", formdata.getToid());
+		model.put("money", formdata.getMoney());
+		return "transfer";
+	}
+	
+	@PostMapping(value = "/check")
+	public String check(@ModelAttribute("check") TransferDto formdata,
+			Map<String, Object> model) {
+		log.info("{}", formdata);
+		Practice result=practiceS.transfer(formdata);
+		if(result!=null) {
+			model.put("result","交易成功");
+			model.put("balance", result.getPrice());
+			return "resultP";
+		}
+		else {
+			model.put("result","交易失敗");
+			return "resultP";
+		}
 	}
 
 }
