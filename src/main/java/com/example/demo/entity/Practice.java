@@ -15,4 +15,6 @@ public class Practice {
 	public String password;
 	
 	public int price;
+	
+	public String name;
 }

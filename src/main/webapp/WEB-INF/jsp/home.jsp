@@ -7,11 +7,16 @@
         <title>Insert title here</title>
     </head>
     <body>
-    歡迎:${lid}<br>
+    歡迎:${name}<br>
     您的餘額是:${price}
-            <form action="/example/result" method="POST">
-                <input type='hidden' id='lid' name='lid' value= "${lid}" >
-                <input type='hidden' name='lpassword' value="${lpractice}"> 
-            </form>
+    <hr/>
+    <form id='transferform' action="/practice/transfer" method="POST">
+    		<input type='hidden' id='id' name='fromid' value= "${id}" >
+    		<h2>轉帳</h2>
+			對方帳號:<input type='text' name='toid'><br> 
+			金額:<input type='text' name='money'><br>
+			<button type="submit" value="提交">轉帳</button>
+		</form>
+		
     </body>
 </html>
