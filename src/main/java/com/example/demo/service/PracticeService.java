@@ -66,11 +66,7 @@ public class PracticeService {
 
 	        // Add money to toAccount
 	        toAccoount.setPrice(toAccoount.getPrice() + money);
-<<<<<<< HEAD
 	        practiceR.save(toAccoount);
-=======
-	        practiceR.save(fromAccoount);
->>>>>>> transfer
 	        
 	        return fromAccoount;
 		}
